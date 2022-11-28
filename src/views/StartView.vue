@@ -12,7 +12,10 @@ function checkVisiterName() {
 }
 
 function createVisiterName() {
-  const setLocalStorageUser = localStorage.setItem("bw_user_name", visiterName.value);
+  const setLocalStorageUser = localStorage.setItem(
+    "bw_user_name",
+    visiterName.value
+  );
   console.log(setLocalStorageUser);
   router.push({ path: "/home" });
 }
@@ -22,9 +25,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
-    className="bw_intro h-screen w-full justify-items-center items-center"
-  >
+  <div className="bw_intro h-screen w-full justify-items-center items-center">
     <input
       type="text"
       name="visiterName"
@@ -32,7 +33,9 @@ onMounted(() => {
       v-model="visiterName"
       maxlength="15"
     />
-    <a @click="createVisiterName" className="btn btn-small">Los geht's {{visiterName}}</a>
+    <a @click="createVisiterName" className="btn btn-small"
+      >Los geht's {{ visiterName }}</a
+    >
   </div>
 </template>
 

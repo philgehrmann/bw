@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-    <div class="footer">Footer</div>
+  <div class="footer">Footer</div>
 </template>
 
 <style></style>

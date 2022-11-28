@@ -50,7 +50,7 @@
     }
   }
   &__navbtn {
-    position:absolute;
+    position: absolute;
     z-index: 1;
     width: 40px;
     height: 2px;
@@ -89,7 +89,7 @@
         cursor: pointer;
 
         span {
-          position:absolute;
+          position: absolute;
           visibility: visible;
           margin-left: 50px;
           transition: all 0.5s ease;
