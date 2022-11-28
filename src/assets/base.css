@@ -54,7 +54,7 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-white);
 
-    --color-navigation : var(--vt-c-orange-light-1-dark);
+    --color-navigation : var(--vt-c-white);
     --color-navigation-text : var(--vt-c-white-soft);
   }
 }

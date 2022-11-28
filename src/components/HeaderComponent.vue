@@ -1,11 +1,19 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div className="header p-6 lg:p-12 grid-cols-2 lg:grid-cols-3">
-    <div className="justify-self-start">nav</div>
-    <div className="justify-self-end lg:justify-self-center">logos</div>
-    <div className="header__socials justify-self-end hidden lg:block grid-cols-4 gap-x-4">
+    <div className="justify-self-start self-center">
+      <div className="header__navbtn-wrapper">
+        <div className="header__navbtn"></div>
+        <span>MENU</span>
+      </div>
+    </div>
+    <div className="justify-self-end lg:justify-self-center header__logo">
+      <img src="../assets/benedikt_warnke_logo.png" className="" />
+    </div>
+    <div
+      className="header__socials justify-self-end hidden lg:block grid-cols-4 gap-x-4 self-center"
+    >
       <a className="svg_icon"><img src="../assets/instagram.svg" /></a>
       <a className="svg_icon"><img src="../assets/spotify.svg" /></a>
       <a className="svg_icon"><img src="../assets/tiktok.svg" /></a>
@@ -24,14 +32,81 @@
   .svg_icon {
     stroke: #fff;
     cursor: pointer;
-    img { 
+    img {
       width: 20px;
       height: 20px;
     }
-
   }
   &__socials {
-    display: grid;
+    @media (min-width: 1024px) {
+      display: grid;
+    }
+  }
+  &__logo {
+    width: 100px;
+
+    @media (min-width: 1024px) {
+      width: 30%;
+    }
+  }
+  &__navbtn {
+    position:absolute;
+    z-index: 1;
+    width: 40px;
+    height: 2px;
+    background: var(--color-navigation);
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 40px;
+      height: 2px;
+      margin-top: -7px;
+      background: var(--color-navigation);
+      transition: all 0.3s ease;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 40px;
+      height: 2px;
+      margin-top: 7px;
+      background: var(--color-navigation);
+      transition: all 0.3s ease;
+    }
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+
+      span {
+        visibility: hidden;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        span {
+          position:absolute;
+          visibility: visible;
+          margin-left: 50px;
+          transition: all 0.5s ease;
+          transition-delay: 0.4s;
+        }
+        .header__navbtn {
+          &::after {
+            margin-top: 0;
+            transition: all 0.3s ease;
+          }
+          &::before {
+            margin-top: 0;
+            transition: all 0.3s ease;
+          }
+        }
+      }
+    }
   }
 }
 </style>
