@@ -7,6 +7,7 @@
 <template>
     <main className="main__content">
       <HeaderComponent />
+      <h1>WELCOME</h1>
       <RouterView />
       <AudioPlayerComponent />
     </main>

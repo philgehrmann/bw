@@ -8,7 +8,7 @@ function initAudioplayer() {
     console.log(AudioContext);
 }
 onMounted(() => {
-    console.log("asdasdss213")
+
     initAudioplayer();
 });
 </script>
@@ -22,9 +22,10 @@ onMounted(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .bw_audioplayer {
   display: grid;
+  grid-template-columns: 15% 20% 40% 25%;
   bottom: 0;
   border-top: 1px solid var(--color-background-soft);
 }
