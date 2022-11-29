@@ -44,9 +44,10 @@ import EventsComponent from "../components/EventsComponent.vue";
   width: 100%;
   align-items: center;
   justify-items: center;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 76% 23%;
   height: 100vh;
   width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
 
   @media (max-width: 1024px) {
@@ -115,8 +116,8 @@ import EventsComponent from "../components/EventsComponent.vue";
     &-circle {
       top: -50px;
       z-index: -1;
-      width: 750px;
-      height: 750px;
+      width: 550px;
+      height: 550px;
       border-radius: 50%;
       overflow: hidden;
       background: linear-gradient(
