@@ -94,6 +94,7 @@ import EventsComponent from "../components/EventsComponent.vue";
     }
     &.desktop {
       display: block;
+      top:70px;
       @media (max-width: 1024px) {
         display: none;
       }
@@ -147,7 +148,7 @@ import EventsComponent from "../components/EventsComponent.vue";
   h1 {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
-    font-size: 9rem;
+    font-size: 8.5rem;
     margin-top: -2rem;
     pointer-events: none;
     user-select: none;
@@ -160,7 +161,7 @@ import EventsComponent from "../components/EventsComponent.vue";
 
   p {
     &.max-75 {
-      max-width: 75%;
+      max-width: 50%;
       margin-bottom: 4rem;
       @media (max-width: 1024px) {
         max-width: 80%;
@@ -190,7 +191,7 @@ import EventsComponent from "../components/EventsComponent.vue";
     &.outline {
       text-transform: uppercase;
       letter-spacing: 0.1rem;
-      font-size: 9rem;
+      font-size: 8.5rem;
       color: transparent;
       -webkit-text-stroke: 1px var(--vt-c-white);
 
