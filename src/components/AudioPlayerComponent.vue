@@ -1,25 +1,14 @@
 <script setup>
-import { ref, onMounted } from "vue";
-
-const visiterName = ref("");
-const AudioContext = ref(window.AudioContext || window.webkitAudioContext);
-
-function initAudioplayer() {
-  console.log(AudioContext);
-}
-onMounted(() => {
-  initAudioplayer();
-});
+  import { ref, onMounted } from "vue";
+  import AudioPlayer from "vue3-audio-player";
+  import "vue3-audio-player/dist/style.css";
 </script>
-
 <template>
-  <div className="bw_audioplayer w-full p-6 px-6 lg:p-6 fixed">
-    <div className="bw_artist">Buttons</div>
-    <div className="bw_song">Volumne</div>
-    <div className="bw_songbar">progressbar</div>
-    <!-- Afterwards implementation-->
-    <div className="bw_songbar">Songchoose</div>
-  </div>
+  <AudioPlayer
+    :option="{
+      src: 'unholy.mp3',
+    }"
+  />
 </template>
 
 <style lang="scss">
@@ -28,5 +17,18 @@ onMounted(() => {
   grid-template-columns: 15% 20% 40% 25%;
   bottom: 0;
   border-top: 1px solid var(--color-background-soft);
+
+  audio {
+    &::-webkit-media-controls-play-button {
+      background-color: white;
+      border-radius: 50%;
+      color: white;
+    }
+    &::-webkit-media-controls-panel {
+      background: #040404;
+      border: 0;
+      outline: none;
+    }
+  }
 }
 </style>

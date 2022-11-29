@@ -1,13 +1,14 @@
 <script setup>
 import { ref } from "vue";
 let menuActive = ref(false);
+const emit = defineEmits(['toggleNav'])
 </script>
 
 <template>
   <div className="header p-6 lg:p-12 grid-cols-2 lg:grid-cols-3">
     <div className="justify-self-start self-center">
       <div
-        @click="menuActive = !menuActive"
+        @click="$emit('toggleNav', 'active')"
         v-bind:class="[
           menuActive
             ? ' header__navbtn-wrapper'

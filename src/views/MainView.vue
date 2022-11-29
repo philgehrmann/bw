@@ -1,14 +1,21 @@
 <script setup>
+import {ref, reactive} from 'vue';
 import { RouterLink, RouterView } from "vue-router";
 import HeaderComponent from "../components/HeaderComponent.vue";
 import NavigationComponent from "../components/NavigationComponent.vue";
 import EventsComponent from "../components/EventsComponent.vue";
+
+const NavStatus = ref('deactive');
+
+function state(n) {
+  NavStatus.value = n
+}
 </script>
 
 <template>
   <main className="main__content">
-    <NavigationComponent />
-    <HeaderComponent />
+    <NavigationComponent :state="NavStatus"/>
+    <HeaderComponent @toggleNav="(n) => state(n)"/>
     <div className="firstpageFrame container p-6 lg:p-12">
       <div className="firstpageFrame__content">
         <p className="subline">DJ & Producer</p>
@@ -49,6 +56,20 @@ import EventsComponent from "../components/EventsComponent.vue";
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+
+
+  @keyframes pulse {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    border: 3px solid transparent;
+  }
+}
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
@@ -121,6 +142,7 @@ import EventsComponent from "../components/EventsComponent.vue";
       height: 550px;
       border-radius: 50%;
       overflow: hidden;
+      clip-path: circle(100% at 50% 50%);
       background: linear-gradient(
         90deg,
         rgb(229, 0, 255) 0%,
