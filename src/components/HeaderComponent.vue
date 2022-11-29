@@ -59,7 +59,7 @@ let menuActive = ref(false);
     width: 100px;
 
     @media (min-width: 1024px) {
-      width: 30%;
+      width: 20%;
     }
   }
   &__navbtn {
