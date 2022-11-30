@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 let menuActive = ref(false);
-const emit = defineEmits(['toggleNav'])
+const emit = defineEmits(["toggleNav"]);
 </script>
 
 <template>
@@ -22,12 +22,44 @@ const emit = defineEmits(['toggleNav'])
       <img src="../assets/benedikt_warnke_logo_black-2.png" className="" />
     </div>
     <div
-      className="header-nav__socials justify-self-end hidden lg:block grid-cols-4 gap-x-4 self-center"
+      className="header-nav__socials justify-self-end hidden lg:block grid-cols-6 gap-x-4 self-center"
     >
-      <a className="svg_icon"><img src="../assets/instagram-black.svg" /></a>
-      <a className="svg_icon"><img src="../assets/spotify-black.svg" /></a>
-      <a className="svg_icon"><img src="../assets/tiktok-black.svg" /></a>
-      <a className="svg_icon"><img src="../assets/youtube-black.svg" /></a>
+      <a
+        href="https://www.instagram.com/benediktwarnke/"
+        target="_blank"
+        className="svg_icon"
+        ><img src="../assets/instagram-black.svg"
+      /></a>
+      <a
+        href="https://open.spotify.com/artist/28pLFHvEWVVklo6SFocksn?si=vuYWn93MRZCWS2CK3nvvZg"
+        target="_blank"
+        className="svg_icon"
+        ><img src="../assets/spotify-black.svg"
+      /></a>
+      <a
+        href="https://www.tiktok.com/@benedikt_warnke"
+        target="_blank"
+        className="svg_icon"
+        ><img src="../assets/tiktok-black.svg"
+      /></a>
+      <a
+        href="https://www.youtube.com/@benedikt-warnke"
+        target="_blank"
+        className="svg_icon"
+        ><img src="../assets/youtube-black.svg"
+      /></a>
+      <a
+        href="https://www.twitch.tv/the_bboi"
+        target="_blank"
+        className="svg_icon"
+        ><img src="../assets/twitch-black.svg"
+      /></a>
+      <a
+        href="https://soundcloud.com/benediktwarnke"
+        target="_blank"
+        className="svg_icon"
+        ><img src="../assets/soundcloud-black.svg"
+      /></a>
     </div>
   </div>
 </template>

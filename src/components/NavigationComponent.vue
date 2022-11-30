@@ -1,19 +1,18 @@
 <script setup>
 import HeaderComponentNavigation from "../components/HeaderComponentNavigation.vue";
-import { reactive, computed } from "vue";
+import { ref, reactive, computed } from "vue";
 const props = defineProps(["state"]);
+const NavStatus = reactive(ref('deactive'));
+
 const NavState = computed(() => {
   return props.state;
 });
-function state(n) {
-  NavState.value = n;
-}
 </script>
 
 <template>
   <div>
     <div class="navigation h-screen w-full absolute" :class="NavState">
-      <HeaderComponentNavigation />
+      <HeaderComponentNavigation @toggleNav="(n) => NavState = n"/>
       <div class="navigation__frame p-6 lg:p-12">
         <h1><a href="">About Me</a></h1>
         <h1><a href="">Bookings</a></h1>

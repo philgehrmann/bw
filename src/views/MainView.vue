@@ -1,46 +1,53 @@
 <script setup>
-import {ref, reactive} from 'vue';
+import { ref, reactive } from "vue";
 import { RouterLink, RouterView } from "vue-router";
 import HeaderComponent from "../components/HeaderComponent.vue";
 import NavigationComponent from "../components/NavigationComponent.vue";
-import EventsComponent from "../components/EventsComponent.vue";
+import BookingComponent from "../components/BookingComponent.vue";
+import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
+import YouTube from "vue3-youtube";
 
-const NavStatus = ref('deactive');
+const NavStatus = ref("deactive");
 
 function state(n) {
-  NavStatus.value = n
+  NavStatus.value = n;
 }
 </script>
 
 <template>
   <main className="main__content">
-    <NavigationComponent :state="NavStatus"/>
-    <HeaderComponent @toggleNav="(n) => state(n)"/>
+    <NavigationComponent :state="NavStatus" />
+    <HeaderComponent @toggleNav="(n) => state(n)" />
+
     <div className="firstpageFrame container p-6 lg:p-12">
       <div className="firstpageFrame__content">
-        <p className="subline">DJ & Producer</p>
-        <h1>Benedikt <span className="outline">Warnke</span></h1>
-        <div className="firstpageFrame__circleFrame mobile">
+          <p className="subline">DJ & Producer</p>
+          <h1>Benedikt <span className="outline">Warnke</span></h1>
+
+          <div className="firstpageFrame__circleFrame mobile">
+            <div className="firstpageFrame__circleFrame-circle">
+              <img src="../assets/bene.png" />
+            </div>
+          </div>
+
+          <p class="max-75">
+            Benedikt Warnke is an ambitious DJ & Musicproducer from Germany,
+            living in The Netherlands. Always smiling and giving his crowd a
+            good and happy time! The style is House music, which clearly is
+            going to make you dance all night!Benedikt plays at international
+            Night & Beach Clubs in Turkey, Spain, The Netherlands, Germany,
+            Maldives, Greece and many more are about to come.
+          </p>
+          <a class="btn"> Explore my passion</a>
+      </div>
+
+      <div className="firstpageFrame__circleFrame desktop">
           <div className="firstpageFrame__circleFrame-circle">
             <img src="../assets/bene.png" />
           </div>
-        </div>
-        <p class="max-75">
-          Benedikt Warnke is an ambitious DJ & Musicproducer from Germany,
-          living in The Netherlands. Always smiling and giving his crowd a good
-          and happy time! The style is House music, which clearly is going to
-          make you dance all night! Benedikt plays at international Night &
-          Beach Clubs in Turkey, Spain, The Netherlands, Germany, Maldives,
-          Greece and many more are about to come.
-        </p>
-        <a class="btn"> Explore my passion</a>
-      </div>
-      <div className="firstpageFrame__circleFrame desktop">
-        <div className="firstpageFrame__circleFrame-circle">
-          <img src="../assets/bene.png" />
-        </div>
       </div>
     </div>
+    <BookingComponent />
   </main>
 </template>
 
@@ -57,19 +64,18 @@ function state(n) {
   max-width: 1400px;
   margin: 0 auto;
 
-
   @keyframes pulse {
-  0% {
-    width: 0;
-    height: 0;
-    opacity: 0;
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    100% {
+      width: 100px;
+      height: 100px;
+      border: 3px solid transparent;
+    }
   }
-  100% {
-    width: 100px;
-    height: 100px;
-    border: 3px solid transparent;
-  }
-}
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
@@ -104,6 +110,7 @@ function state(n) {
 
   &__content {
     overflow-wrap: normal;
+    z-index: 5;
     @media (max-width: 1024px) {
       text-align: center;
     }
@@ -115,7 +122,7 @@ function state(n) {
     }
     &.desktop {
       display: block;
-      top:70px;
+      top: 70px;
       @media (max-width: 1024px) {
         display: none;
       }
@@ -129,11 +136,18 @@ function state(n) {
         display: grid;
 
         img {
-        width: 100%;
-        max-width: none;
-        margin-top: 50px;
+          width: 100%;
+          max-width: none;
+          margin-top: 50px;
+        }
       }
-      }
+    }
+    .yt_video_bg {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
     }
     &-circle {
       top: -50px;
@@ -143,6 +157,7 @@ function state(n) {
       border-radius: 50%;
       overflow: hidden;
       clip-path: circle(100% at 50% 50%);
+    
       background: linear-gradient(
         90deg,
         rgb(229, 0, 255) 0%,
@@ -150,6 +165,10 @@ function state(n) {
       );
       -webkit-box-shadow: rgb(103 0 255 / 40%) 0px 10px 60px 0px;
       box-shadow: rgb(103 0 255 / 40%) 0px 10px 60px 0px;
+      background-image:url("../assets/benebooking1.gif");
+      background-size:cover;
+      background-position:center;
+      animation: circleAnim 5s infinite;
 
       @media (max-width: 1024px) {
         width: 250px;
@@ -163,6 +182,23 @@ function state(n) {
         width: 110%;
         max-width: none;
         margin-top: 100px;
+        z-index:200;
+        
+      }
+
+      &::after {
+        content:"";
+        top:0;
+        left: 0;
+        position: absolute;
+        width: 550px;
+        height: 550px;
+        opacity: 0.5;
+        background: linear-gradient(
+        90deg,
+        rgb(229, 0, 255) 0%,
+        rgb(130, 0, 255) 100%
+      );
       }
     }
   }
@@ -222,5 +258,8 @@ function state(n) {
       }
     }
   }
+  @keyframes circleAnim {
+  50% {box-shadow: 0px 0px 50px    rgba(229, 0, 255, 0.2)}
+}
 }
 </style>
